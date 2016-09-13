@@ -1,5 +1,5 @@
 body{
-	background: #1c1b1b;
+	background: #1e1818;
 	color: #666;
 	font-family: "Arial", sans-serif;
 }
@@ -17,7 +17,7 @@ h1{
 	width: 350px;
 	overflow: auto;
 	margin: 40px auto;
-	background: #666;
+	background: #102920;
 	padding-bottom: 40px;
 	border-radius: 10px;
 }
@@ -36,13 +36,14 @@ h1{
 
 #board li:hover, #reset:hover{
 	cursor: pointer;
-	background: #000;
+	background: #1e1818;
 }
 
 #reset{
 	border: 0;
 	background: #444;
 	color: #fff;
+	font-size: 18px;
 	width: 70%;
 	padding: 15px;
 	border-radius: 5px;
