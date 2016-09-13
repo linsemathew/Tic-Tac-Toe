@@ -27,6 +27,20 @@ $(document).ready(function(){
 			$('#board li').removeClass('disable');
 			$('#board li').removeClass('O');
 			$('#board li').removeClass('X');
+		} else if(spot1.hasclass('X') && spot2.hasclass('X') spot3.hasclass('X') ||
+			spot4.hasclass('X') && spot5.hasclass('X') spot6.hasclass('X') ||
+			spot7.hasclass('X') && spot8.hasclass('X') spot9.hasclass('X') ||
+			spot1.hasclass('X') && spot4.hasclass('X') spot7.hasclass('X') ||
+			spot2.hasclass('X') && spot5.hasclass('X') spot8.hasclass('X') ||
+			spot3.hasclass('X') && spot6.hasclass('X') spot9.hasclass('X') ||
+			spot1.hasclass('X') && spot5.hasclass('X') spot9.hasclass('X') ||
+			spot3.hasclass('X') && spot5.hasclass('X') spot7.hasclass('X') ||
+		){
+			alert("X is the winner!");
+			$('#board li').text();
+			$('#board li').removeClass('disable');
+			$('#board li').removeClass('O');
+			$('#board li').removeClass('X');
 		}
 	});
 });
