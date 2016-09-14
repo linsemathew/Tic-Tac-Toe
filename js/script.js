@@ -48,6 +48,12 @@ $(document).ready(function(){
 			$('#board li').removeClass('O');
 			$('#board li').removeClass('X');
 			turns = 0;
+		} else if($(this).hasClass('disabled')){
+			alert('Whoops! This spot is taken. Try again!');
+		} else if(turns % 2 == 0){
+			turns ++;
+			$(this).text(o);
+			$(this).addClass('disable o');
 		}
 	});
 });
