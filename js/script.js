@@ -1,6 +1,6 @@
 $(document).ready(function(){
-	var x = "X";
-	var o = "O";
+	var x = "x";
+	var o = "o";
 	var turns = 0;
 	var spot1 = $('#spot1');
 	var spot2 = $('#spot2');
@@ -13,47 +13,65 @@ $(document).ready(function(){
 	var spot9 = $('#spot9');
 
 	$('#board li').on('click', function(){
-		if(spot1.hasclass('O') && spot2.hasclass('O') && spot3.hasclass('O') ||
-			spot4.hasclass('O') && spot5.hasclass('O') && spot6.hasclass('O') ||
-			spot7.hasclass('O') && spot8.hasclass('O') && spot9.hasclass('O') ||
-			spot1.hasclass('O') && spot4.hasclass('O') && spot7.hasclass('O') ||
-			spot2.hasclass('O') && spot5.hasclass('O') && spot8.hasclass('O') ||
-			spot3.hasclass('O') && spot6.hasclass('O') && spot9.hasclass('O') ||
-			spot1.hasclass('O') && spot5.hasclass('O') && spot9.hasclass('O') ||
-			spot3.hasclass('O') && spot5.hasclass('O') && spot7.hasclass('O')
-		){
-			alert("X is the winner!");
-			$('#board li').text(' ');
-			$('#board li').removeClass('disable');
-			$('#board li').removeClass('O');
-			$('#board li').removeClass('X');
-		} else if(spot1.hasclass('X') && spot2.hasclass('X') && spot3.hasclass('X') ||
-			spot4.hasclass('X') && spot5.hasclass('X') && spot6.hasclass('X') ||
-			spot7.hasclass('X') && spot8.hasclass('X') && spot9.hasclass('X') ||
-			spot1.hasclass('X') && spot4.hasclass('X') && spot7.hasclass('X') ||
-			spot2.hasclass('X') && spot5.hasclass('X') && spot8.hasclass('X') ||
-			spot3.hasclass('X') && spot6.hasclass('X') && spot9.hasclass('X') ||
-			spot1.hasclass('X') && spot5.hasclass('X') && spot9.hasclass('X') ||
-			spot3.hasclass('X') && spot5.hasclass('X') && spot7.hasclass('X') 
-		){
-			alert("X is the winner!");
-			$('#board li').text();
-			$('#board li').removeClass('disable');
-			$('#board li').removeClass('O');
-			$('#board li').removeClass('X');
-		} else if(turns == 9){
+		if(oWon){
+			alert("O is the winner! Let's start a new game.");
+			clearBoard();
+		} else if(xWon) {
+			alert("X is the winner! Let's start a new game.");
+			clearBoard();
+		} else if(turns == 8){
 			alert("Tie Game!");
-			$('#board li').text();
-			$('#board li').removeClass('disable');
-			$('#board li').removeClass('O');
-			$('#board li').removeClass('X');
-			turns = 0;
-		} else if($(this).hasClass('disabled')){
+			clearBoard();
+		} else if($(this).hasClass('disable')){
 			alert('Whoops! This spot is taken. Try again!');
 		} else if(turns % 2 == 0){
-			turns ++;
+			turns++;
 			$(this).text(o);
 			$(this).addClass('disable o');
+			if(oWon()
+		){
+			alert("O is the winner!");
+			turns = 0;
 		}
-	});
+		} else {
+			turns++;
+			$(this).text(x);
+			$(this).addClass('disable x');
+			if(xWon()) {
+			alert("X is the winner!");
+			turns = 0;
+		}
+		}
+		});
+		$('#reset').on('click', clearBoard);
+
+		function xWon{
+			spot1.hasClass('x') && spot2.hasClass('x') && spot3.hasClass('x') ||
+			spot4.hasClass('x') && spot5.hasClass('x') && spot6.hasClass('x') ||
+			spot7.hasClass('x') && spot8.hasClass('x') && spot9.hasClass('x') ||
+			spot1.hasClass('x') && spot4.hasClass('x') && spot7.hasClass('x') ||
+			spot2.hasClass('x') && spot5.hasClass('x') && spot8.hasClass('x') ||
+			spot3.hasClass('x') && spot6.hasClass('x') && spot9.hasClass('x') ||
+			spot1.hasClass('x') && spot5.hasClass('x') && spot9.hasClass('x') ||
+			spot3.hasClass('x') && spot5.hasClass('x') && spot7.hasClass('x')
+		}
+
+		function oWon{
+			spot1.hasClass('o') && spot2.hasClass('o') && spot3.hasClass('o') ||
+			spot4.hasClass('o') && spot5.hasClass('o') && spot6.hasClass('o') ||
+			spot7.hasClass('o') && spot8.hasClass('o') && spot9.hasClass('o') ||
+			spot1.hasClass('o') && spot4.hasClass('o') && spot7.hasClass('o') ||
+			spot2.hasClass('o') && spot5.hasClass('o') && spot8.hasClass('o') ||
+			spot3.hasClass('o') && spot6.hasClass('o') && spot9.hasClass('o') ||
+			spot1.hasClass('o') && spot5.hasClass('o') && spot9.hasClass('o') ||
+			spot3.hasClass('o') && spot5.hasClass('o') && spot7.hasClass('o')
+		}
+
+		function clearBoard(){
+			$('#board li').text(' ');
+			$('#board li').removeClass('disable');
+			$('#board li').removeClass('o');
+			$('#board li').removeClass('x');
+			turns = 0;
+		}
 });
