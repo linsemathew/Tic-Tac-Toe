@@ -9,10 +9,6 @@ h1{
 	color: #fff;
 }
 
-.clearFix{
-	clear:both;
-}
-
 #container{
 	width: 350px;
 	overflow: auto;

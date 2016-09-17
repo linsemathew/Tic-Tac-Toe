@@ -22,24 +22,26 @@ $(document).ready(function(){
 		} else if($(this).hasClass('disable')){
 			alert('Whoops! This spot is taken. Try again!');
 		} else if(turns % 2 == 0){
-			turns++;
 			$(this).text(o);
 			$(this).addClass('disable o');
+			turns++;
 			if(checkWinner(o)){
 				alert("O is the winner!");
 				turns = 0;
 			}
-		} else if (turns % 2 != 0){
-			turns++;
+		} else {
 			$(this).text(x);
 			$(this).addClass('disable x');
+			turns++;
 			if(checkWinner(x)){
 				alert("X is the winner!");
 				turns = 0;
 			}
-		} else if(turns == 8){
-			alert("Tie Game! Let's start a new game.");
-			clearBoard();
+		} 
+		
+		if(turns == 9){
+			alert("It's a tie! Let's start a new game.")
+			clearBoard()
 		}
 	});
 
