@@ -1,4 +1,8 @@
 $(document).ready(function(){
+	var playerOName = prompt("Who is player O?")
+	var playerXName = prompt("Who is player X?")
+	var playerOScore = 0
+	var playerXScore = 0
 	var x = "x";
 	var o = "o";
 	var turns = 0;
@@ -11,6 +15,13 @@ $(document).ready(function(){
 	var spot7 = $('#spot7');
 	var spot8 = $('#spot8');
 	var spot9 = $('#spot9');
+
+	if (playerOName) {
+		$('#player-o-name').text(playerOName);
+	}
+	if (playerXName) {
+		$('#player-x-name').text(playerXName);
+	}
 
 	$('#board li').on('click', function(){
 		if(checkWinner(o)){
@@ -28,6 +39,8 @@ $(document).ready(function(){
 			if(checkWinner(o)){
 				alert("O is the winner!");
 				turns = 0;
+				playerOScore++;
+				$('#player-o-score').text(playerOScore);
 			}
 		} else {
 			$(this).text(x);
@@ -36,6 +49,8 @@ $(document).ready(function(){
 			if(checkWinner(x)){
 				alert("X is the winner!");
 				turns = 0;
+				playerXScore++;
+				$('#player-x-score').text(playerXScore);
 			}
 		} 
 		

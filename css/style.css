@@ -1,5 +1,5 @@
 body{
-	background: #1e1818;
+	background: #365147;
 	color: #666;
 	font-family: "Arial", sans-serif;
 }
@@ -53,8 +53,33 @@ h1{
 	color:red !important;
 }
 
-footer{
+#reset-container{
 	display: block;
 	text-align: center;
 	padding-top: 20px;
 }
+
+#score-board{
+	width: 350px;
+	overflow: auto;
+	background: #365147;
+	border-bottom-style: groove
+}
+
+/*#player-o-name{
+	border-bottom-style: groove;
+	border-right-style: groove;
+}*/
+
+/*#player-o-score{
+	border-right-style: groove;
+}*/
+
+/*#player-x-name{
+	border-bottom-style: groove;
+	border-left-style: groove;
+}*/
+
+/*#player-x-score{
+	border-left-style: groove;
+}*/
