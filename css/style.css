@@ -1,5 +1,5 @@
 body{
-	background: #365147;
+	background: #333545;
 	color: #666;
 	font-family: "Arial", sans-serif;
 }
@@ -13,7 +13,7 @@ h1{
 	width: 350px;
 	overflow: auto;
 	margin: 40px auto;
-	background: #102920;
+	background: #13162A;
 	padding-bottom: 40px;
 	border-radius: 10px;
 }
@@ -59,27 +59,26 @@ h1{
 	padding-top: 20px;
 }
 
-#score-board{
+#scoreboard{
 	width: 350px;
-	overflow: auto;
-	background: #365147;
-	border-bottom-style: groove
+	background: #090C1E;
+	border-top-style: groove;
+	border-bottom-style: groove;
+	color: #ccc;
 }
 
-/*#player-o-name{
-	border-bottom-style: groove;
-	border-right-style: groove;
-}*/
+#player-o-name, #player-o-score{
+	float: left;
+	width: 160px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
-/*#player-o-score{
-	border-right-style: groove;
-}*/
-
-/*#player-x-name{
-	border-bottom-style: groove;
-	border-left-style: groove;
-}*/
-
-/*#player-x-score{
-	border-left-style: groove;
-}*/
+#player-x-name, #player-x-score{
+	float: right;
+	width: 160px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
